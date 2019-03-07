@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>鼠标悬停事件</title>
+	<!-- 生产环境版本，优化了尺寸和速度 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+	<div id="app-2">
+		<span v-bind:title="message">
+			鼠标悬停几秒钟查看此处动态绑定的提示信息
+		</span>
+	</div>
+</body>
+<script type="text/javascript">
+	// var app2 = new Vue({ //官方代码
+	//   el: '#app-2',
+	//   data: {
+	//     message: '页面加载于 ' + new Date().toLocaleString()
+	//   }
+	// })
+
+	//自己写的
+	var app2 = new Vue({
+		el:"#app-2", //注意坑 EL 不是E1
+		  data: {
+		    message: "页面加载于" + new Date().toLocaleString()
+		  }
+	})
+
+</script>
+</html>
