@@ -16,14 +16,16 @@
 	</div>
 	<script>
 		var app = new Vue({
-			el: '#app',
-			data: {
-				list: [],
-				inputValue:''
+			el:'#app',
+			data:{
+				list:[],
+				inputValue:'',
 			},
-			methods: {
-				btnClick: function () {
-					this.list.push(this.inputValue);
+			methods:{
+				btnClick:function(){
+					if(this.inputValue!=''){
+						this.list.push(this.inputValue);
+					}
 					this.inputValue='';
 				}
 			}
