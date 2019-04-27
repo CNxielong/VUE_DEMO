@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue实例</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div  @click="handlerClick">
+			{{ message }}
+		</div>
+		<item></item>
+	</div>
+	
+	<script type="text/javascript">
+	Vue.component('item',{
+		template:'<div>components</div>'
+	})
+
+	var root = new Vue({
+		el:'#root',
+		data:{
+			message:'hello Vue'
+		},
+		methods:{
+			handlerClick:function(){
+				alert("hello VUE");
+			}
+		}
+	})
+	</script>
+</body>
+</html>

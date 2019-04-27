@@ -10,21 +10,32 @@
 	<div id="app">
 		<input type="text" v-model='inputValue'>
 		<button v-on:click='btnClick'>提交</button>
-	<ul>
-		<Todo-Item v-bind:content='item' 
+		<ul>
+			<Todo-Item v-bind:content='item' 
 			v-for="item in list"></Todo-Item>
-	</ul>
+		</ul>
 <!-- 		<ul>
 			<li v-for="item in list">{{item}}</li>
 		</ul> -->
 	</div>
 	<script>
-		Vue.component('TodoItem',{
+		// 全局变量
+		// Vue.component('TodoItem',{
+		// 	props:['content'],
+		// 	template:'<li>{{content}}</li>',
+		// })
+		
+		// 局部变量
+		var TodoItem = {
 			props:['content'],
 			template:'<li>{{content}}</li>',
-		})
+		}
+
 		var app = new Vue({
 			el:'#app',
+			components:{
+				TodoItem:TodoItem,
+			},
 			data:{
 				list:[],
 				inputValue:'',
