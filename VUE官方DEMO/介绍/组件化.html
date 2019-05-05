@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>输入框双向绑定</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id ="component">
+		<ol>
+			<!--创建一个组件实例 -->
+			<todo-item 
+			v-for="item in groceryList"
+			v-bind:todo = "item"
+			v-bind:key = "item.id"
+			></todo-item>
+		</ol>
+	</div>
+	
+	<script type="text/javascript">
+		
+		// Vue.component('todo-item', {
+		//   props: ['todo'],
+		//   template: '<li>{{ todo.text }}</li>'
+		// })
+
+		// var component = new Vue({
+		//   el: '#component',
+		//   data: {
+		//     groceryList: [
+		//       { id: 0, text: '蔬菜' },
+		//       { id: 1, text: '奶酪' },
+		//       { id: 2, text: '随便其它什么人吃的东西' }
+		//     ]
+		//   }
+		// })
+
+		Vue.component('todo-item',{
+			props:['todo'],
+			template:'<li>{{todo.text}}</li>'
+		})
+
+		var component = new Vue({
+			el:'#component',
+			data:{
+			  groceryList:[
+				{id:0, text:"A"},
+				{id:1, text:"B"},
+				{id:2, text:"C"}
+				]
+			}
+		})
+		
+	</script>
+
+
+</body>
+</html>
