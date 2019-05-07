@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算属性getter和setter方法</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			{{ fullName }}
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+	var root = new Vue({
+		el:'#root',
+		data:{
+			firstName:'Xie',
+			lastName:'Long',
+			age:25
+		},
+		
+		//控制台 输入 root.fullName="he he"
+		computed: {
+			fullName: {
+				get: function(){
+					return this.firstName + this.lastName ;
+				},
+				set: function(value){
+					console.log(value);
+					var name = value.split(" ");
+					this.firstName = name[0];
+					this.lastName = name[1];
+				}
+
+		  }
+		}
+	
+	})
+	</script>
+</body>
+</html>
