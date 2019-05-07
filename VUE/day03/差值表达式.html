@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>差值表达式</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			{{ message+ '表达式' }}
+		</div>
+
+		<div v-text = "message">
+		</div>
+
+		<div v-text="'text对应: '+htmlMessage">
+		</div>
+		<div v-html="'html对应: '+htmlMessage">
+		</div>
+
+	</div>
+
+<script type="text/javascript">
+	Vue.component('item',{
+		template:'<div>components</div>'
+	})
+
+	var root = new Vue({
+		el:'#root',
+		data:{
+			message:'Expression',
+			htmlMessage:'<h1>htmlMessage</h1>'
+		},
+		methods:{
+			handlerClick:function(){
+				alert("hello VUE");
+			}
+		}
+	})
+	</script>
+</body>
+</html>

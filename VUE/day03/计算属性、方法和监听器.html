@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算属性、方法和监听器</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			{{ firstName+lastName }} {{ age }}
+			{{ '计算属性' + fullName }}
+			{{ '方法' + calcName() }}
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+	var root = new Vue({
+		el:'#root',
+		data:{
+			firstName:'Xie',
+			lastName:'Long',
+			age:25
+		},
+		
+		//带缓存 计算的值不改变 不会重新计算 有缓存
+		computed:{
+			fullName:function(){
+				console.log("computed打印一次")
+				return this.firstName + this.lastName ;
+			}
+		},
+	//带缓存 计算的值不改变 不会重新计算 有缓存 语法复杂
+		watch:{
+			firstName:function(){
+				console.log("监听打印一次")
+				return this.firstName + this.lastName ;
+			},
+			lastName:function(){
+				console.log("监听打印一次")
+				return this.firstName + this.lastName ;
+			}
+		},
+		// 不带缓存 调用就重新计算
+		methods:{
+			calcName:function(){
+				console.log("方法打印一次")
+				return this.firstName + this.lastName + this.age;
+			}
+		}
+	})
+	</script>
+</body>
+</html>
