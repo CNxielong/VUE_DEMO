@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>条件渲染v-if增加Key用于标记唯一元素防止复用</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div v-if="boolean" key="userName">用户名 <input/> </div>
+		<div v-else key="password">密码 <input/> </div>
+		
+	</div>
+	
+	<script type="text/javascript">
+	
+	var root = new Vue({
+		el:'#root',
+		data:{
+			boolean:true
+		}
+		
+	})
+	</script>
+</body>
+</html>

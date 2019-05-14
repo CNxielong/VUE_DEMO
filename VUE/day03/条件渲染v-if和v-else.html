@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>条件渲染v-if和v-else</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div v-if=" char==='a' ">this is a </div>
+		<div v-else-if=" char==='b' ">this is b </div>
+		<div v-else>this is other </div>
+	</div>
+	
+	<script type="text/javascript">
+	
+	var root = new Vue({
+		el:'#root',
+		data:{
+			char:'a'
+		}
+		
+	})
+	</script>
+</body>
+</html>

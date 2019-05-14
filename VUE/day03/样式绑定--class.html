@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class样式绑定</title>
+	<script src="../vue.js"></script>
+	<style type="text/css">
+		.activated{
+			color:red		
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<!-- <div @click="handlerClick" :class="{isActivated: isActivated}"> -->
+		<div @click="handlerClick" :class="{activated}">
+			 class 样式绑定
+		</div>
+
+	</div>
+
+<script type="text/javascript">
+	var root = new Vue({
+		el:'#root',
+		data:{
+			activated: true,
+		},
+		methods:{
+			handlerClick:function(){
+				alert("hello VUE");
+				this.activated = ( this.activated === true ? false: true );
+			}
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>条件渲染v-if移除DOM节点和v-show</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div v-if="display" data="v-if">
+			{{ message }}
+		</div>
+		<div v-show="display" data="v-show">
+			{{ message }}
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	
+	var root = new Vue({
+		el:'#root',
+		data:{
+			message:'hello Vue',
+			display: true
+		}
+		
+	})
+	</script>
+</body>
+</html>

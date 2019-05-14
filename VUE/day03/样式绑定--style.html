@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>style样式绑定</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div @click="handlerClick" :style="styleObj">
+			 style 样式绑定
+		</div>
+
+	</div>
+
+<script type="text/javascript">
+	var root = new Vue({
+		el:'#root',
+		data:{
+			styleObj:{
+				color: "red" 
+			}
+		},
+		methods:{
+			handlerClick:function(){
+				alert("hello VUE");
+				this.styleObj.color = (this.styleObj.color === "red"? "blue": "red");
+				
+			}
+		}
+	})
+	</script>
+</body>
+</html>
