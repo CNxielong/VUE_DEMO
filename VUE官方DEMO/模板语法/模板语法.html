@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>插值表达式</title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+</head>
+<body>
+	<div id="root">
+		文本：
+		<span>msg:{{ msg }}</span>
+		<span v-once> v-once这个值不会改变-msg:{{ msg }}</span>
+		HTML:
+		<p>Using mustaches: {{ html }} </p>
+		<p>Using v-html directive:<span v-html="html"></span></p>
+		特性
+		<button v-bind:disabled="isButtonDisabled">Button</button>
+
+    </div>
+
+	<script type="text/javascript">
+		var root = new Vue({
+			el:"#root",
+			data:{
+				msg:"插值表达式",
+				html: "<span style='color:red'>红色的</span>",
+				isButtonDisabled: false
+			}
+		})
+	</script>
+</body>
+</html>

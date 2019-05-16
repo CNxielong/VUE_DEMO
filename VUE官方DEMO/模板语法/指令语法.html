@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>指令语法</title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+</head>
+<body>
+	<div id="root">
+		参数：
+			<a v-bind:href="url">{{ url }}</a>
+			<button v-on:click="doSomething"> 点击事件</button> 
+
+		
+    </div>
+
+	<script type="text/javascript">
+		var root = new Vue({
+			el:"#root",
+
+			data:{
+				url:"www.google.com",
+
+			},
+
+			methods:{
+				doSomething:function(){
+					alert("do")
+				}
+			}
+
+
+		})
+	</script>
+</body>
+</html>
