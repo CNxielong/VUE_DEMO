@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>列表渲染数组</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="root">
+
+<!-- 	<div  v-for="(item,index) of list" :key="item.id"> //多一层DIV
+		<div>
+			元素-{{item}}--下标-{{index}}--ID-{{item.id}}
+		</div>
+		<span >
+			元素-{{item.name}}--ID-{{item.id}}
+		</span>
+	</div>  -->
+
+ <!-- 少一层DIV 不能用:key="item.id" -->
+ 	<template v-for="(item,index) of list" > 
+		<div>
+			元素-{{item}}--下标-{{index}}--ID-{{item.id}}
+		</div>
+		<span >
+			元素-{{item.name}}--ID-{{item.id}}
+		</span>
+	</template>  
+
+	</div>
+	
+	<script type="text/javascript">
+		// push增加 pop shift删除数组第一项 unshift增加第一项内容
+		// splice截取 sort排序 reverse反转
+		var root = new Vue({
+			el:'#root',
+			data:{
+				list:[
+				{id:'1',name:"hello"},
+				{id:'2',name:"X-Dragon"},
+				{id:'3',name:"ni"},
+				{id:'4',name:"hao"}
+				]
+			}
+		})
+	</script>
+</body>
+</html>
