@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算属性</title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+</head>
+<body>
+	<div id="root">
+		  <p>Original message: "{{ message }}"</p>
+  		  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+  		  <p>time：{{now}}</p>
+  		  计算属性的get和set<br>
+  		  全名是{{fullName}}
+    </div>
+
+	<script type="text/javascript">
+		var root = new Vue({
+			el:"#root",
+
+			data:{
+				message:"www.google.com",
+				firstName:"",
+				lastName:""
+			},
+
+			computed:{
+				reversedMessage: function(){
+					return this.message.split('.').reverse().join('')
+				},
+				now: function(){
+					return Date.now()
+				},
+				fullName: {
+					get: function(){
+						return this.firstName+this.lastName
+					},
+					set:function(val){
+						var names = val.split(' ')
+						if(names.length==2){
+							this.firstName=names[0]
+							this.lastName=names[1]
+						}else {
+							alert("输入非法")
+						}
+					}
+				}
+
+			}
+
+
+		})
+	</script>
+</body>
+</html>

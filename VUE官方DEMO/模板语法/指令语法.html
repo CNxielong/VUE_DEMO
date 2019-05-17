@@ -11,8 +11,9 @@
 		参数：
 			<a v-bind:href="url">{{ url }}</a>
 			<button v-on:click="doSomething"> 点击事件</button> 
-
-		
+		动态参数
+		[方括号括起来的 JavaScript 表达式]
+		<a v-bind:[value]="url">这个是URL</a>
     </div>
 
 	<script type="text/javascript">
@@ -21,6 +22,7 @@
 
 			data:{
 				url:"www.google.com",
+				value: "href",
 
 			},
 
