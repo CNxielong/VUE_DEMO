@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绑定HTML Class对象</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="component">
+		<div class="static" v-bind:class="{active: isActive,'text-danger': hasError}">静态和动态的绑定</div>
+		<div v-bind:class="classObject">在data里面绑定一个对象</div>
+		<div v-bind:class="classObjectComputed">在计算属性里面绑定一个对象 控制台输入 root.error={type: 'fatal'}</div>
+		<div v-bind:class="[activeClass, errorClass]">数组语法</div>
+		<div >用在组件上
+			<my-component class="bar foo&"></my-component>
+		</div>
+	</div>
+	<script type="text/javascript">
+		Vue.component('myComponent',{
+			template:'<p class="&foo bar">Hi</p>'
+		})
+
+
+		var component = new Vue({
+			el:"#component",
+			data:{
+				isActive:true,
+				hasError: false,
+				classObject:{
+					active: true,
+					'text-danger': false
+				},
+				error:null,
+				activeClass:'active',
+				errorClass:{
+					'text-danger': true
+				}
+			},
+			computed:{
+				classObjectComputed: function () {
+					return {
+						active: this.isActive && !this.error,
+						'text-danger': this.error && this.error.type === 'fatal'
+					}
+				}
+			}
+
+		})
+
+	
+	</script>
+</body>
+</html>
