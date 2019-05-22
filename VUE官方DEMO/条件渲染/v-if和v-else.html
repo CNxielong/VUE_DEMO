@@ -9,12 +9,31 @@
 	<div id='root'>
 		<h1 v-if="awesome">Vue is awesome!</h1>
 		<h1 v-else>Oh no 😢</h1>
+		<div v-if="Math.random() > 0.5">
+			大于0.5
+		</div>
+		<div v-else>
+			小于等于0.5
+		</div>
+		<div v-if="type === 'A'">
+			A
+		</div>
+		<div v-else-if="type === 'B'">
+			B
+		</div>
+		<div v-else-if="type === 'C'">
+			C
+		</div>
+		<div v-else>
+			Not A/B/C
+		</div>
 	</div>
 	<script type="text/javascript">
 		var root = new Vue({
 			el:'#root',
 			data:{
-				awesome:true
+				awesome:true,
+				type:'D'
 			}
 		})
 	</script>

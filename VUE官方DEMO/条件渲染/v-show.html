@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+</head>
+<body>
+	
+	<div id="root">
+		<div v-show="boolean" key="userName">用户名 <input/> </div>
+		<input type="button" value="v-show支持else" v-on:click="change()" />
+		<ol>
+		<li v-for="site in list" v-if="site.key!=='1'">
+				{{ site.value }}
+			</li>
+		</ol>
+		
+	</div>
+	
+	<script type="text/javascript">
+
+		var root = new Vue({
+			el:'#root',
+			data:{
+				boolean:true,
+				list:[{key:'1',value:'val1'},{key:'2',value:'val2'}]
+			},
+			methods:{
+				change:function(){
+					this.boolean=(this.boolean===true?false:true);
+				}
+			}
+
+		})
+	</script>
+
+</body>
+</html>

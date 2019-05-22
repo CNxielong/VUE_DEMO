@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>v-if的KEY唯一区分</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+</head>
+<body>
+	<div id="root">
+		<template v-if="loginType === 'username'" >
+			<label>Username</label>
+			<input placeholder="Enter your username" key='username'>
+		</template>
+		<template v-else>
+			<label>Email</label>
+			<input placeholder="Enter your email address">
+		</template>
+		<input type='button' value="toggle login type" @click='changeType()'></input>
+	</div>
+	<script type="text/javascript">
+		var root = new Vue({
+			el:'#root',
+			data:{
+				loginType:'username'
+			},
+			methods:{
+				changeType(){
+					// this.loginType==='username'?(this.loginType='password'):(this.loginType='username');//语法冗余
+					this.loginType= (this.loginType==='username'?'password':'username')
+				}
+			}
+
+		})  
+
+	</script>
+</body>
+</html>
